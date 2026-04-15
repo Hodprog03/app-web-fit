@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FitNassius | Generador de Ejercicios Personalizados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <h1>💪 FitNassius 🏋️</h1>
+        <p>Cansado de no saber que hacer? ¡Te ayudamos a encontrar tu rutina ideal!</p>
+    </div>
+
+    <div class="main-content">
+      
+        <div class="goal-selector">
+            <h2>¿Cuál es tu objetivo?</h2>
+            <div class="goal-buttons">
+                <button class="goal-btn" id="loseWeightBtn">
+                    <span class="goal-icon">⚖️</span>
+                    <span>Bajar de Peso</span>
+                    <span class="goal-desc">Cardio + Quema calorías</span>
+                </button>
+                <button class="goal-btn" id="gainMuscleBtn">
+                    <span class="goal-icon">💪</span>
+                    <span>Ganar Músculo</span>
+                    <span class="goal-desc">Fuerza + Hipertrofia</span>
+                </button>
+            </div>
+        </div>
+
+        
+        <div class="exercise-area">
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="exercise-badge" id="goalBadge">🎯 Objetivo</span>
+                    <span class="exercise-type" id="exerciseType">Ejercicio</span>
+                </div>
+                <div class="exercise-name" id="exerciseName">
+                    Selecciona un objetivo para comenzar.
+                </div>
+                <div class="exercise-details" id="exerciseDetails">
+                    Elige si quieres bajar de peso o ganar músculo.
+                </div>
+                <div class="exercise-tips" id="exerciseTips">
+                    💡 Los mejores resultados vienen con consistencia y disciplina.
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="action-buttons">
+            <button class="generate-btn" id="generateBtn">
+                <span>🔄</span> Generar Nuevo Ejercicio.
+            </button>
+            <button class="favorite-btn" id="favoriteBtn">
+                <span>⭐</span> Guardar Favorito.
+            </button>
+        </div>
+
+        
+        <div class="favorites-section" id="favoritesSection" style="display: none;">
+            <h3>📌 Tus Ejercicios Favoritos</h3>
+            <div class="favorites-list" id="favoritesList">
+              
+            </div>
+            <button class="clear-favorites-btn" id="clearFavoritesBtn">
+                🗑️ Limpiar favoritos.
+            </button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🏆 Consulta a un profesional antes de iniciar cualquier rutina,</p>
+        <p>👂🏼Escucha a tu cuerpo y mantén una alimentación saludable.</p>
+        <p>💪🏼Manten la constancia y la disciplina en tu camino hacia la mejor versión de ti mismo.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

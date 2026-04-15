@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.main-content {
+    padding: 2rem;
+}
+
+/* Selector de objetivo */
+.goal-selector {
+    margin-bottom: 2rem;
+}
+
+.goal-selector h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.goal-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.goal-btn {
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    border: none;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    border: 2px solid transparent;
+}
+
+.goal-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.goal-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: #fff;
+    transform: scale(1.02);
+}
+
+.goal-icon {
+    font-size: 2.5rem;
+}
+
+.goal-btn span:nth-child(2) {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.goal-desc {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Área de ejercicio */
+.exercise-area {
+    margin: 2rem 0;
+}
+
+.exercise-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.exercise-badge {
+    background: #764ba2;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.exercise-type {
+    background: #667eea;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.exercise-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.exercise-details {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.exercise-tips {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    color: #856404;
+    font-size: 0.9rem;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.generate-btn, .favorite-btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.generate-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+.favorite-btn {
+    background: #ffc107;
+    color: #333;
+}
+
+.favorite-btn:hover {
+    background: #ffb300;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+.favorite-btn:active {
+    transform: translateY(0);
+}
+
+/* Sección de favoritos */
+.favorites-section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #e0e0e0;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.favorites-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.favorite-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.favorite-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.favorite-info {
+    flex: 1;
+}
+
+.favorite-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.favorite-details {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.remove-favorite {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.remove-favorite:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.clear-favorites-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.clear-favorites-btn:hover {
+    background: #5a6268;
+}
+
+/* Footer */
+.footer {
+    background: #f8f9fa;
+    padding: 1rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .goal-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .exercise-name {
+        font-size: 1.3rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Scrollbar personalizada */
+.favorites-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.favorites-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.favorites-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.favorites-list::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
