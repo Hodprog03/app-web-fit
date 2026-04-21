@@ -54,7 +54,6 @@ body {
     padding: 2rem;
 }
 
-/* Selector de objetivo */
 .goal-selector {
     margin-bottom: 2rem;
 }
@@ -189,7 +188,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Botones de acción */
 .action-buttons {
     display: flex;
     gap: 1rem;
@@ -242,7 +240,6 @@ body {
     transform: translateY(0);
 }
 
-/* Sección de favoritos */
 .favorites-section {
     margin-top: 2rem;
     padding-top: 1rem;
@@ -338,7 +335,6 @@ body {
     background: #5a6268;
 }
 
-/* Footer */
 .footer {
     background: #f8f9fa;
     padding: 1rem;
@@ -348,7 +344,6 @@ body {
     border-top: 1px solid #e0e0e0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .main-content {
         padding: 1rem;
@@ -371,7 +366,6 @@ body {
     }
 }
 
-/* Scrollbar personalizada */
 .favorites-list::-webkit-scrollbar {
     width: 8px;
 }
