@@ -1,4 +1,3 @@
-// Base de datos de ejercicios para cada objetivo
 const exercisesDatabase = {
     loseWeight: {
         name: "Cardio y Quema de Calorías",
@@ -36,12 +35,10 @@ const exercisesDatabase = {
     }
 };
 
-// Estado de la aplicación
-let currentGoal = null; // 'loseWeight' o 'gainMuscle'
+let currentGoal = null; 
 let currentExercise = null;
 let favorites = JSON.parse(localStorage.getItem('exerciseFavorites')) || [];
 
-// Elementos del DOM
 const loseWeightBtn = document.getElementById('loseWeightBtn');
 const gainMuscleBtn = document.getElementById('gainMuscleBtn');
 const generateBtn = document.getElementById('generateBtn');
@@ -55,7 +52,6 @@ const exerciseTips = document.getElementById('exerciseTips');
 const favoritesSection = document.getElementById('favoritesSection');
 const favoritesList = document.getElementById('favoritesList');
 
-// Función para obtener ejercicio aleatorio según objetivo
 function getRandomExercise(goal) {
     if (!goal) return null;
     
@@ -64,7 +60,6 @@ function getRandomExercise(goal) {
     return { ...exercises[randomIndex] };
 }
 
-// Función para actualizar la UI con el ejercicio actual
 function updateExerciseUI(exercise, goal) {
     if (!exercise || !goal) return;
     
@@ -75,7 +70,6 @@ function updateExerciseUI(exercise, goal) {
     exerciseDetails.textContent = `Duración/Series: ${exercise.duration}`;
     exerciseTips.innerHTML = `💡 Tip: ${exercise.tips}`;
     
-    // Animación suave
     const exerciseCard = document.querySelector('.exercise-card');
     exerciseCard.style.animation = 'none';
     setTimeout(() => {
@@ -83,7 +77,6 @@ function updateExerciseUI(exercise, goal) {
     }, 10);
 }
 
-// Función para generar un nuevo ejercicio
 function generateExercise() {
     if (!currentGoal) {
         alert('⚠️ Por favor, selecciona primero un objetivo (Bajar de peso o Ganar músculo)');
@@ -95,7 +88,6 @@ function generateExercise() {
     updateExerciseUI(currentExercise, currentGoal);
 }
 
-// Función para guardar ejercicio favorito
 function saveFavorite() {
     if (!currentExercise || !currentGoal) {
         alert('⚠️ Genera un ejercicio primero antes de guardarlo como favorito');
@@ -109,7 +101,6 @@ function saveFavorite() {
         exercise: { ...currentExercise }
     };
     
-    // Verificar si ya existe (por nombre y tipo)
     const exists = favorites.some(fav => 
         fav.exercise.name === currentExercise.name && 
         fav.goal === currentGoal
@@ -126,7 +117,6 @@ function saveFavorite() {
     showNotification('✅ Ejercicio guardado en favoritos', 'success');
 }
 
-// Función para eliminar favorito
 function removeFavorite(id) {
     favorites = favorites.filter(fav => fav.id !== id);
     localStorage.setItem('exerciseFavorites', JSON.stringify(favorites));
@@ -134,7 +124,6 @@ function removeFavorite(id) {
     showNotification('🗑️ Ejercicio eliminado de favoritos', 'info');
 }
 
-// Función para limpiar todos los favoritos
 function clearAllFavorites() {
     if (favorites.length === 0) return;
     
@@ -146,7 +135,6 @@ function clearAllFavorites() {
     }
 }
 
-// Función para actualizar la lista de favoritos en UI
 function updateFavoritesUI() {
     if (favorites.length === 0) {
         favoritesSection.style.display = 'none';
@@ -176,7 +164,6 @@ function updateFavoritesUI() {
     });
 }
 
-// Función para mostrar notificaciones
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.textContent = message;
@@ -202,11 +189,9 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Función para cambiar objetivo
 function setGoal(goal) {
     currentGoal = goal;
     
-    // Actualizar UI de botones
     if (goal === 'loseWeight') {
         loseWeightBtn.classList.add('active');
         gainMuscleBtn.classList.remove('active');
@@ -215,25 +200,21 @@ function setGoal(goal) {
         loseWeightBtn.classList.remove('active');
     }
     
-    // Generar primer ejercicio automáticamente
     const firstExercise = getRandomExercise(goal);
     currentExercise = firstExercise;
     updateExerciseUI(currentExercise, goal);
     showNotification(`🎯 Objetivo seleccionado: ${goal === 'loseWeight' ? 'Bajar de Peso' : 'Ganar Músculo'}`, 'info');
 }
 
-// Event Listeners
 loseWeightBtn.addEventListener('click', () => setGoal('loseWeight'));
 gainMuscleBtn.addEventListener('click', () => setGoal('gainMuscle'));
 generateBtn.addEventListener('click', generateExercise);
 favoriteBtn.addEventListener('click', saveFavorite);
 clearFavoritesBtn.addEventListener('click', clearAllFavorites);
 
-// Inicializar la aplicación
 function init() {
     updateFavoritesUI();
     
-    // Animación de entrada para CSS
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideOut {
@@ -252,7 +233,6 @@ function init() {
 
 init();
 
-// Tecla de atajo: Enter genera nuevo ejercicio
 document.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && document.activeElement !== generateBtn) {
         generateExercise();
